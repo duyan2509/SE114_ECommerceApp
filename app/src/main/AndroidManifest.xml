@@ -14,23 +14,24 @@
         android:theme="@style/Theme.TestAuthentication"
         tools:targetApi="31">
         <activity
-            android:name="com.example.ECommerceApp.SellerActivity"
+            android:name=".SearchActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.ECommerceApp.UserActivity"
+            android:name=".SellerActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.ECommerceApp.SignIn_Activity"
-            android:exported="false"
-            android:label="@string/title_activity_sign_in"
-             />
+            android:name=".UserActivity"
+            android:exported="false" />
         <activity
-            android:name="com.example.ECommerceApp.SignUp_Activity"
+            android:name=".SignIn_Activity"
             android:exported="false"
-            android:label="SignUp_Activity"
-             />
+            android:label="@string/title_activity_sign_in" />
         <activity
-            android:name="com.example.ECommerceApp.MainActivity"
+            android:name=".SignUp_Activity"
+            android:exported="false"
+            android:label="SignUp_Activity" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

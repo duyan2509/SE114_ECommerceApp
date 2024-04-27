@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <item name="navigation_myorder" type="id" />
+    <item name="cardView" type="id" />
+    <item name="imageSlider" type="id" />
 </resources>
