@@ -1,0 +1,1 @@
+Dùng để tạo các thực thể có trong app (User, Cart, Hàng hóa,...)
