@@ -13,9 +13,9 @@
     import androidx.recyclerview.widget.LinearLayoutManager;
     import androidx.recyclerview.widget.RecyclerView;
 
-    import com.example.ECommerceApp.Adapter.UserSearchAdapter;
+    import com.example.ECommerceApp.adapter.UserSearchAdapter;
     import com.example.ECommerceApp.domain.ProductRepository;
-    import com.example.ECommerceApp.Model.Product;
+    import com.example.ECommerceApp.model.Product;
 
     import java.util.ArrayList;
     import java.util.List;
