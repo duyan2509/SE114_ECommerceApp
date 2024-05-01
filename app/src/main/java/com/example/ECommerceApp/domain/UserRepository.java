@@ -12,6 +12,7 @@ import com.example.ECommerceApp.UserActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,14 +23,17 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserRepository { private FirebaseAuth auth;
+public class UserRepository {
+    private FirebaseAuth auth;
     private Context context;
     private FirebaseFirestore db;
+    private Timestamp timestamp;
 
 
     public UserRepository(Context context) {
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        timestamp = Timestamp.now();
         this.context = context;
     }
 
@@ -49,7 +53,7 @@ public class UserRepository { private FirebaseAuth auth;
                 if(task.isSuccessful()){
                     Toast.makeText(context, "User Created!", Toast.LENGTH_SHORT).show();
                     String userId = auth.getCurrentUser().getUid();
-                    saveUser(userId, userName, userEmail, userPassword);
+                    saveUser(userId, userName, userEmail, userPassword, timestamp);
                     navigateToHomepage();
 
                 }else {
@@ -67,7 +71,7 @@ public class UserRepository { private FirebaseAuth auth;
                 if (task.getResult().isEmpty()) {
                     String userId = auth.getCurrentUser().getUid();
                     String userName = email.substring(0,email.indexOf('@'));
-                    saveUser(userId,userName,email,"");
+                    saveUser(userId,userName,email,null, timestamp);
                 }
 
             }
@@ -76,16 +80,18 @@ public class UserRepository { private FirebaseAuth auth;
 
     public void navigateToHomepage() {
         Intent intent = new Intent(context, UserActivity.class);
-        //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
         context.startActivity(intent);
     }
 
-    public void saveUser(String userId, String userName,String userEmail, String userPassword ){
+    public void saveUser(String userId, String userName,String userEmail, String userPassword, Timestamp timestamp ){
         DocumentReference documentReference = db.collection("users").document(userId);
         Map<String, Object> user = new HashMap<>();
-        user.put("userName", userName);
+        user.put("username", userName);
         user.put("password", userPassword);
         user.put("email", userEmail);
+        user.put("createdTimestamp", timestamp);
+
         documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
