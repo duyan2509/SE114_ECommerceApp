@@ -35,13 +35,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         Product product = mListProducts.get(position);
         if(product==null)
             return;
-
         holder.product_name.setText(product.getName());
         holder.shop_name.setText(product.getShop_id());
         holder.product_price.setText(String.valueOf(product.getPrice()));
-        Picasso.get().load(product.getProduct_image())
-                .placeholder(R.drawable.ic_launcher_foreground)
-                .into(holder.product_image);
+        holder.product_image.setImageResource(product.getProduct_image());
     }
 
     @Override

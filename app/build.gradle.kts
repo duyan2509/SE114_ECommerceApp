@@ -87,7 +87,7 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.1")
     implementation ("com.google.android.flexbox:flexbox:3.0.0")
     implementation ("com.squareup.picasso:picasso:2.5.2")
-
+    implementation ("com.github.denzcoskun:ImageSlideshow:0.0.6")
 
 
 }

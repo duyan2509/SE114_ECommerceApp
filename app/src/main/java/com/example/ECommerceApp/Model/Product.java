@@ -1,13 +1,13 @@
 package com.example.ECommerceApp.Model;
 
 public class Product {
-    String product_image;
+    int product_image;
     String name;
     String description;
     String shop_id;
     String category_id;
-        float price;
-    public Product(String product_img, String name, String description, String shop_id, String category_id, float price) {
+    float price;
+    public Product(int product_img, String name, String description, String shop_id, String category_id, float price) {
         this.product_image = product_img;
         this.name = name;
         this.description = description;
@@ -19,7 +19,7 @@ public class Product {
 
     }
 
-    public String getProduct_image() {
+    public int getProduct_image() {
         return product_image;
     }
 
@@ -39,7 +39,7 @@ public class Product {
         return category_id;
     }
 
-    public void setProduct_img(String product_img) {
+    public void setProduct_img(int product_img) {
         this.product_image = product_img;
     }
 
@@ -59,7 +59,7 @@ public class Product {
         this.category_id = category_id;
     }
 
-    public void setProduct_image(String product_image) {
+    public void setProduct_image(int product_image) {
         this.product_image = product_image;
     }
 
