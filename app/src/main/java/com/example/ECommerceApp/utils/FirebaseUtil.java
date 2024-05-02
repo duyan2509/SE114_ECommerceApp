@@ -20,5 +20,9 @@ public class FirebaseUtil {
         return FirebaseFirestore.getInstance().collection("users").document(currentUserId());
     }
 
+    public static StorageReference getCurrentShopPicStorageRef(String path, String shopId){
+        return FirebaseStorage.getInstance().getReference().child(path)
+                .child(shopId);
+    }
 
 }

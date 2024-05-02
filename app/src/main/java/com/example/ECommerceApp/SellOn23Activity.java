@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,6 +19,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ECommerceApp.domain.ShopRepository;
+import com.example.ECommerceApp.domain.UserRepository;
 import com.example.ECommerceApp.utils.AndroidUtil;
 import com.example.ECommerceApp.utils.FirebaseUtil;
 import com.github.dhaval2404.imagepicker.ImagePicker;
@@ -142,19 +144,21 @@ public class SellOn23Activity extends AppCompatActivity {
         check = checkValidInformation();
 
         if(check){
-            FirebaseUtil.getCurrentPicStorageRef("logo_shop_pic").putFile(logoSelectedImageUri)
-                    .addOnCompleteListener(task -> {
-                        updateToFirestore();
-                    });
-
-            FirebaseUtil.getCurrentPicStorageRef("banner_shop_pic").putFile(bannerSelectedImageUri)
-                    .addOnCompleteListener(task -> {
-                        updateToFirestore();
-                    });
-
             shopRepository.saveShop(shopName.getText().toString(),phoneNumber.getText().toString()
-                    ,shopAddress.getText().toString(),logoSelectedImageUri.toString(),bannerSelectedImageUri.toString());
+                    ,shopAddress.getText().toString(),logoSelectedImageUri.toString(),bannerSelectedImageUri.toString(), new ShopRepository.OnShopSaveListener(){
+                        @Override
+                        public void onShopSaved(String shopId) {
+                            FirebaseUtil.getCurrentShopPicStorageRef("logo_shop_pic", shopId).putFile(logoSelectedImageUri)
+                                    .addOnCompleteListener(task -> {
+                                        updateToFirestore();
+                                    });
 
+                            FirebaseUtil.getCurrentShopPicStorageRef("banner_shop_pic", shopId).putFile(bannerSelectedImageUri)
+                                    .addOnCompleteListener(task -> {
+                                        updateToFirestore();
+                                    });
+                        }
+                    });
             finish();
         }
     }

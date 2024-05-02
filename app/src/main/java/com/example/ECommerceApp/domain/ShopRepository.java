@@ -2,8 +2,11 @@ package com.example.ECommerceApp.domain;
 
 import android.content.Context;
 
+import androidx.annotation.NonNull;
+
 import com.example.ECommerceApp.utils.AndroidUtil;
 import com.example.ECommerceApp.utils.FirebaseUtil;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.CollectionReference;
@@ -18,6 +21,11 @@ public class ShopRepository {
     private FirebaseFirestore db;
     private Timestamp timestamp;
     private CollectionReference shopCollection;
+    private String shopId;
+
+    public interface OnShopSaveListener {
+        void onShopSaved(String shopId);
+    }
 
     public ShopRepository(Context context) {
         db = FirebaseFirestore.getInstance();
@@ -27,7 +35,7 @@ public class ShopRepository {
     }
 
 
-    public void saveShop(String shopName,String phoneNumber, String shopAddress, String profileImage, String bannerImage){
+    public void saveShop(String shopName, String phoneNumber, String shopAddress, String profileImage, String bannerImage, OnShopSaveListener listener){{
         Map<String, Object> shop = new HashMap<>();
 
         shop.put("userId", FirebaseUtil.currentUserId());
@@ -42,12 +50,17 @@ public class ShopRepository {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
+                        String shopId = documentReference.getId(); // Retrieve the shop ID
                         AndroidUtil.showToast(context, "Create Successfully");
+                        listener.onShopSaved(shopId); // Pass the shop ID to the listener
                     }
                 })
-                .addOnFailureListener(e -> {
-                    AndroidUtil.showToast(context, "Create Failed");
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        AndroidUtil.showToast(context, "Create Failed");
+                    }
                 });
-
+    }
     }
 }
