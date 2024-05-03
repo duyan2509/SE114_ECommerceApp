@@ -3,9 +3,6 @@ package com.example.ECommerceApp;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.support.annotation.NonNull;
@@ -14,16 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.denzcoskun.imageslider.ImageSlider;
-import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.ECommerceApp.Adapter.MyViewPagerAdapter;
-import com.example.ECommerceApp.Adapter.ProductAdapter;
-import com.example.ECommerceApp.Model.Product;
+import com.example.ECommerceApp.adapter.MyViewPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class HomeUser extends Fragment {
 

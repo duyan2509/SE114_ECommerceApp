@@ -5,7 +5,7 @@
     import android.content.Context;
     import android.util.Log;
 
-    import com.example.ECommerceApp.Model.Search;
+    import com.example.ECommerceApp.model.Search;
     import com.google.android.gms.tasks.Task;
     import com.google.firebase.Timestamp;
     import com.google.firebase.auth.FirebaseAuth;

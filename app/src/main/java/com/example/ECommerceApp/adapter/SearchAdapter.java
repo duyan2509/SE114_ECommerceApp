@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Adapter;
+package com.example.ECommerceApp.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ECommerceApp.Model.Search;
+import com.example.ECommerceApp.model.Search;
 import com.example.ECommerceApp.R;
 import com.example.ECommerceApp.SearchFilter;
 

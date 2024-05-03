@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ECommerceApp.Adapter.ProductAdapter;
+import com.example.ECommerceApp.adapter.ProductAdapter;
 import com.example.ECommerceApp.domain.ProductRepository;
-import com.example.ECommerceApp.Model.Product;
+import com.example.ECommerceApp.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

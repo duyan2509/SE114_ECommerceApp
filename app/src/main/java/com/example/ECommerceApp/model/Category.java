@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Model;
+package com.example.ECommerceApp.model;
 
 public class Category {
     int category_image;

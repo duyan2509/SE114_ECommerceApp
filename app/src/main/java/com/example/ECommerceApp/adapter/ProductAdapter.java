@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Adapter;
+package com.example.ECommerceApp.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ECommerceApp.R;
-import com.example.ECommerceApp.Model.Product;
+import com.example.ECommerceApp.model.Product;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

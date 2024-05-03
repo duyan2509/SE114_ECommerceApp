@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Adapter;
+package com.example.ECommerceApp.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ECommerceApp.R;
-import com.example.ECommerceApp.Model.Product;
+import com.example.ECommerceApp.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;

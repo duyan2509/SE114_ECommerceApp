@@ -12,9 +12,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.ECommerceApp.Adapter.SearchAdapter;
+import com.example.ECommerceApp.adapter.SearchAdapter;
 import com.example.ECommerceApp.domain.SearchRepository;
-import com.example.ECommerceApp.Model.Search;
+import com.example.ECommerceApp.model.Search;
 import com.google.android.flexbox.FlexboxLayoutManager;
 
 import java.util.ArrayList;

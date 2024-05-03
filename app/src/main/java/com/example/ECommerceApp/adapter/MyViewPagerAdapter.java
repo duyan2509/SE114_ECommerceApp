@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Adapter;
+package com.example.ECommerceApp.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

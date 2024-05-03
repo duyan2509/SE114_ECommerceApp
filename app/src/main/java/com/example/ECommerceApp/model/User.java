@@ -1,4 +1,4 @@
-package com.example.ECommerceApp.Model;
+package com.example.ECommerceApp.model;
 import com.google.firebase.Timestamp;
 public class User {
     private String phone;

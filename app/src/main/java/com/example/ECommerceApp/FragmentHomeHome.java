@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.ECommerceApp.Adapter.ProductAdapter;
-import com.example.ECommerceApp.Model.Product;
+import com.example.ECommerceApp.adapter.ProductAdapter;
+import com.example.ECommerceApp.model.Product;
 
 import java.util.ArrayList;
 import java.util.List;
